@@ -14,11 +14,51 @@
     <style>
         /* Navbar modification */
         .navbar {
-            background-color: rgba(0, 0, 0, 0.9); /* Always dark */
+            background-color: rgba(0, 0, 0, 0.9);
             position: fixed;
             width: 100%;
             z-index: 1000;
+            padding: 10px 20px;;
         }
+        .nav-links {
+    display: flex;
+    justify-content: space-around;
+}
+
+.mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.mobile-menu-btn span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .mobile-menu-btn {
+        display: flex;
+    }
+}
 
         /* Video Section Styling */
         .video-container {
@@ -473,7 +513,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-left">
-                <img src="assets/logo.png alt="Archers Towing Logo">
+                <img src="assets/logo.png" alt="Archers Towing Logo">
                 <p>Phone us on: <b>0704851297</b></p>
             </div>
             <div class="footer-right">
