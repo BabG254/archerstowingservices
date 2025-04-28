@@ -23,7 +23,8 @@ html {
     position: fixed;
     width: 100%;
     z-index: 1000;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.2s ease;
+    padding: 10px 20px;
 }
 
 .navbar.scrolled {
@@ -50,6 +51,45 @@ html {
 
 .nav-links a:hover {
     color: var(--primary-orange);
+}
+.nav-links {
+    display: flex;
+    justify-content: space-around;
+}
+
+.mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.mobile-menu-btn span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .mobile-menu-btn {
+        display: flex;
+    }
 }
 
 /* Hero Section */
