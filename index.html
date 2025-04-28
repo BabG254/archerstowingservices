@@ -12,17 +12,57 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/logo.png">
     <style>
-        /* Navbar modification */
-        .navbar {
-            background-color: rgba(0, 0, 0, 0.9);
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            padding: 10px 20px;;
-        }
-        .nav-links {
+       /* Navbar Base Styles */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    padding: 10px 20px;
+    transition: background-color 0.2s ease;
+}
+
+.navbar.scrolled {
+    background-color: var(--primary-black);
+}
+
+.navbar-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem 5%;
+}
+
+.logo img {
+    height: 50px;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-orange);
+}
+
+.nav-links a.active {
+    color: var(--primary-orange);
 }
 
 .mobile-menu-btn {
@@ -36,6 +76,7 @@
     height: 3px;
     background-color: white;
     margin: 3px 0;
+    transition: background-color 0.3s ease;
 }
 
 @media (max-width: 768px) {
@@ -49,18 +90,16 @@
         left: 0;
         width: 100%;
         z-index: 1000;
+        padding: 1rem 0;
     }
-    @media (max-width: 768px) {
-    .nav-links a {
-        padding: 15px;
-        font-size: 1.2rem;
-        text-align: center;
-        width: 100%;
-    }
-}
 
     .nav-links.active {
         display: flex;
+    }
+
+    .nav-links a {
+        margin: 1rem 0;
+        font-size: 1.2rem;
     }
 
     .mobile-menu-btn {
