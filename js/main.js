@@ -7,13 +7,7 @@ window.addEventListener('scroll', () => {
         navbar.classList.remove('scrolled');
     }
 });
-// JavaScript for Mobile Menu
-document.querySelector('.mobile-menu-btn').addEventListener('click', function () {
-    const navLinks = document.querySelector('.nav-links');
-    navLinks.classList.toggle('active');
-});
-
-// Mobile menu toggle
+// Mobile Menu Toggle
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
 const navLinks = document.querySelector('.nav-links');
 
@@ -54,7 +48,19 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
+// Chatbot Toggle
+const chatBotButton = document.querySelector('.chat-bot');
+const chatBotWindow = document.getElementById('chatBotWindow');
 
+chatBotButton.addEventListener('click', () => {
+    chatBotWindow.classList.toggle('open');
+});
+
+// Close chatbot window when clicking the close button
+const closeChat = document.getElementById('closeChat');
+closeChat.addEventListener('click', () => {
+    chatBotWindow.classList.remove('open');
+});
 // Chat Bot Toggle and Functionality
 const chatBot = document.querySelector('.chat-bot');
 const chatBotWindow = document.getElementById('chatBotWindow');
