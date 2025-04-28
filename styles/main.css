@@ -18,47 +18,65 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Navbar Styles */
+/* Navbar Base Styles */
 .navbar {
     position: fixed;
+    top: 0;
     width: 100%;
     z-index: 1000;
     transition: background-color 0.2s ease;
     padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.9); /* Default dark background */
 }
 
 .navbar.scrolled {
-    background-color: var(--primary-black);
+    background-color: var(--primary-black); /* Darker background when scrolled */
 }
 
 .navbar-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1400px; /* Limit width for better alignment */
+    margin: 0 auto;
     padding: 1rem 5%;
 }
 
+/* Logo Styling */
 .logo img {
     height: 50px;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    gap: 20px; /* Space between links */
 }
 
 .nav-links a {
     color: var(--white);
     text-decoration: none;
-    margin: 0 1rem;
+    font-size: 1rem;
+    font-weight: 500;
     transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: var(--primary-orange);
-}
-.nav-links {
-    display: flex;
-    justify-content: space-around;
+    color: var(--primary-orange); /* Highlight on hover */
 }
 
+.nav-links a.active {
+    color: var(--primary-orange); /* Active link highlight */
+}
+
+/* Mobile Menu Button */
 .mobile-menu-btn {
-    display: none;
+    display: none; /* Hidden by default on larger screens */
     flex-direction: column;
     cursor: pointer;
 }
@@ -68,27 +86,35 @@ html {
     height: 3px;
     background-color: white;
     margin: 3px 0;
+    transition: background-color 0.3s ease;
 }
 
+/* Responsive Navbar Styles */
 @media (max-width: 768px) {
     .nav-links {
-        display: none;
+        display: none; /* Hide links by default */
         flex-direction: column;
         align-items: center;
         background-color: rgba(0, 0, 0, 0.9);
         position: absolute;
-        top: 80px;
+        top: 80px; /* Adjust based on navbar height */
         left: 0;
         width: 100%;
         z-index: 1000;
+        padding: 1rem 0;
     }
 
     .nav-links.active {
-        display: flex;
+        display: flex; /* Show links when active */
+    }
+
+    .nav-links a {
+        margin: 1rem 0; /* Add spacing for mobile links */
+        font-size: 1.2rem; /* Larger font size for mobile */
     }
 
     .mobile-menu-btn {
-        display: flex;
+        display: flex; /* Show mobile menu button */
     }
 }
 
