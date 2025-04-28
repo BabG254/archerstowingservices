@@ -250,6 +250,30 @@ html {
     left: 2rem;
     bottom: 2rem;
 }
+/* Chatbot Window Animations */
+.chat-bot-window {
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 350px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 2000;
+    overflow: hidden;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 70%;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
 
 /* Footer */
 footer {
