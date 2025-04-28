@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Archers Towing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .blog-section {
+            padding: 120px 5% 60px;
+            background-color: var(--light-gray);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .blog-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-content h2 {
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-meta {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: var(--primary-orange);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .read-more:hover {
+            color: var(--dark-orange);
+        }
+
+        /* Modal styles */
+        .blog-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-black);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar scrolled">
+        <div class="navbar-container">
+            <div class="logo">
+                <img src="assets/logo.png" alt="Archers Towing Logo">
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact</a>
+                <a href="prices.html">Prices</a>
+                <a href="location.html">Location</a>
+                <a href="blog.html" class="active">Blog</a>
+                <a href="gallery.html">Gallery</a>
+            </div>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="page-content">
+        <section class="blog-section">
+            <div class="container">
+                <h1>Latest Updates</h1>
+                
+                <div class="blog-grid">
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="assets/story1.jpeg" alt="Forklift Services">
+                        </div>
+                        <div class="blog-content">
+                            <h2>Forklift Services: Your Complete Guide</h2>
+                            <p class="blog-meta">Posted on April 26, 2025</p>
+                            <p>Discover our comprehensive forklift services, including transportation, maintenance, and emergency recovery.</p>
+                            <a href="#" class="read-more" data-article="forklift">Read More</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="assets/growth.jpeg" alt="Hiab Crane Operations">
+                        </div>
+                        <div class="blog-content">
+                            <h2>Hiab Crane Operations & Safety</h2>
+                            <p class="blog-meta">Posted on April 28, 2025</p>
+                            <p>Learn about our Hiab crane services and the safety measures we implement for efficient operations.</p>
+                            <a href="#" class="read-more" data-article="hiab">Read More</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <img src="assets/towing1.jpeg" alt="Operations">
+                        </div>
+                        <div class="blog-content">
+                            <h2>Expanding Our Service Areas</h2>
+                            <p class="blog-meta">Posted on June 1, 2023</p>
+                            <p>We're excited to announce our expanded service coverage across new regions.</p>
+                            <a href="#" class="read-more">Read More</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Blog Modal -->
+    <div class="blog-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <a href="https://wa.me/254704851297?text=Hello%20Archers%20Towing%2C%20I%20need%20assistance" class="float-btn whatsapp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:0704851297" class="float-btn call">
+            <i class="fas fa-phone"></i>
+        </a>
+        <div class="float-btn chat-bot">
+            <i class="fas fa-comments"></i>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <img src="assets/logo.png" alt="Archers Towing Logo">
+                <p>Phone us on: <b>0704851297</b></p>
+            </div>
+            <div class="footer-right">
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 Archers Towing. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Blog modal functionality
+        const blogCards = document.querySelectorAll('.blog-card');
+        const modal = document.querySelector('.blog-modal');
+        const modalContent = document.querySelector('.modal-body');
+        const closeModal = document.querySelector('.close-modal');
+
+        const blogContent = {
+            forklift: {
+                title: "Forklift Services: Your Complete Guide",
+                content: `
+                    <h2>Comprehensive Forklift Services</h2>
+                    <p>At Archers Towing, we provide specialized forklift transportation and recovery services. Our team is equipped with the latest technology and expertise to handle various types of forklifts safely and efficiently.</p>
+                    
+                    <h3>Our Forklift Services Include:</h3>
+                    <ul>
+                        <li>Emergency forklift recovery</li>
+                        <li>Forklift transportation</li>
+                        <li>Maintenance and repair</li>
+                        <li>Safety inspections</li>
+                    </ul>
+                    
+                    <p>Contact us today to learn more about our forklift services!</p>
+                `
+            },
+            hiab: {
+                title: "Hiab Crane Operations & Safety",
+                content: `
+                    <h2>Professional Hiab Crane Services</h2>
+                    <p>Our Hiab crane services offer versatile lifting solutions for various applications. We prioritize safety and efficiency in all our crane operations.</p>
+                    
+                    <h3>Key Features:</h3>
+                    <ul>
+                        <li>Precise load handling</li>
+                        <li>Experienced operators</li>
+                        <li>Regular maintenance</li>
+                        <li>Safety certifications</li>
+                    </ul>
+                    
+                    <p>Trust our expert team for your crane operation needs!</p>
+                `
+            }
+        };
+
+        blogCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const article = card.querySelector('.read-more').dataset.article;
+                if (blogContent[article]) {
+                    modalContent.innerHTML = blogContent[article].content;
+                    modal.style.display = 'flex';
+                }
+            });
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
